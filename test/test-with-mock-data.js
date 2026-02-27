@@ -8,6 +8,7 @@
 import { writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { tmpdir } from 'os';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -251,8 +252,8 @@ async function main() {
   const today = new Date();
   const testHTML = generateTestHTML(today, mockArticles, mockAnalysis);
 
-  // Write to /tmp so it doesn't get committed
-  const testPath = '/tmp/test-feed-summary.html';
+  // Write to tmpdir so it doesn't get committed
+  const testPath = join(tmpdir(), 'test-feed-summary.html');
   writeFileSync(testPath, testHTML);
 
   console.log('✅ Test completed successfully!\n');

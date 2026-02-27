@@ -56,7 +56,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
