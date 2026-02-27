@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "fetch": "node src/index.js",
-    "test": "echo \"No tests yet\" && exit 0"
+    "test": "node test/test-with-mock-data.js",
+    "test:syntax": "node --check src/index.js"
   },
   "keywords": [
     "readwise",
