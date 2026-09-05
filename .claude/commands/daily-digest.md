@@ -54,13 +54,13 @@ Never ask a sub-agent for prose that could reach the letter. Keep working while 
 blocking on each one, and step in if one goes off track or is missing context it needs.
 
 Before publishing, hand the finished letter to one fresh sub-agent that hasn't seen the run, along
-with `<premises>`, `<writing>`, `<linking>` and the URL ledger from step 5. Ask it for three things:
-every sentence that describes the newsletter's own production; every URL in the letter that isn't in
-the ledger; and every entry that carries no concrete fact at all — no number, name, date, finding or
-claim. It gets those three because each is answerable from what it was given. Whether a fact matches
-the source it's attributed to is not — that needs the tool results, so it stays with you. A URL
-missing from the ledger is a hard finding: cut the link, or replace it with one from the ledger. Its
-read on the writing is advisory; yours is final.
+with `<premises>` and `<writing>`. It gets one question, because a reader who didn't do the research
+answers it better than you can: where does this letter talk about its own production? You know why
+each entry got the space it got, and that is exactly what makes the sentence explaining it invisible
+to you. Have it name any entry carrying no concrete fact at all too — no number, name, date, finding
+or claim — since that falls out of the same read. Nothing else. Link provenance and whether a fact
+matches its source both need the tool results, so they stay with you. Its read is advisory; yours is
+final.
 
 If a page fails or is paywalled, note it in a clause and move on. Retry once at most. Never block the
 run on one item.
@@ -140,8 +140,9 @@ anything already fetched this run, and anything paywalled.
 
 Keep a ledger of every URL a tool returned this run — Reader document URLs, article and discussion
 URLs, and the URLs your sub-agents report back with their notes — and reuse it rather than
-re-fetching. It is also what makes a link checkable at the end: a URL that isn't in the ledger didn't
-come from a tool. Two items pointing at the same underlying story merge into one entry.
+re-fetching. It is also how you hold yourself to `<linking>`: check each link against the ledger as
+you write it, rather than hunting for bad ones afterwards. A URL that isn't in the ledger didn't come
+from a tool. Two items pointing at the same underlying story merge into one entry.
 
 **From a discussion, capture:** overall reception and how contested it is; the substantive lines of
 argument; corrections and disputes of the item, attributed and linked to the specific comment;
