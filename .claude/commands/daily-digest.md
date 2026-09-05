@@ -54,9 +54,13 @@ Never ask a sub-agent for prose that could reach the letter. Keep working while 
 blocking on each one, and step in if one goes off track or is missing context it needs.
 
 Before publishing, hand the finished letter to one fresh sub-agent that hasn't seen the run, along
-with `<premises>`, `<writing>` and `<linking>`. Ask it to name every sentence describing the
-newsletter's own production, every URL not traceable to a tool result, and every entry carrying no
-fact from its source. Fix what it finds. Its read on the writing is advisory; yours is final.
+with `<premises>`, `<writing>`, `<linking>` and the URL ledger from step 5. Ask it for three things:
+every sentence that describes the newsletter's own production; every URL in the letter that isn't in
+the ledger; and every entry that carries no concrete fact at all — no number, name, date, finding or
+claim. It gets those three because each is answerable from what it was given. Whether a fact matches
+the source it's attributed to is not — that needs the tool results, so it stays with you. A URL
+missing from the ledger is a hard finding: cut the link, or replace it with one from the ledger. Its
+read on the writing is advisory; yours is final.
 
 If a page fails or is paywalled, note it in a clause and move on. Retry once at most. Never block the
 run on one item.
@@ -134,8 +138,10 @@ counterpoint the item lacks, supplies framing a reader would want, or is indepen
 the discussion as well. Skip navigation, social-share, marketing, sponsored and affiliate links,
 anything already fetched this run, and anything paywalled.
 
-Keep a note of URLs fetched this run and reuse rather than re-fetching. Two items pointing at the
-same underlying story merge into one entry.
+Keep a ledger of every URL a tool returned this run — Reader document URLs, article and discussion
+URLs, and the URLs your sub-agents report back with their notes — and reuse it rather than
+re-fetching. It is also what makes a link checkable at the end: a URL that isn't in the ledger didn't
+come from a tool. Two items pointing at the same underlying story merge into one entry.
 
 **From a discussion, capture:** overall reception and how contested it is; the substantive lines of
 argument; corrections and disputes of the item, attributed and linked to the specific comment;
