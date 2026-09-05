@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "daily-digest",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "daily-digest",
+      "database_id": "PASTE_FROM_WRANGLER_D1_CREATE",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
