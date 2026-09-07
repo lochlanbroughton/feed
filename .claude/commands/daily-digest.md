@@ -1,7 +1,7 @@
 ---
 description: Research the last day of the reading queue and write the Daily Digest letter to Notion.
 argument-hint: "[optional: edition date or run-specific instructions]"
-allowed-tools: mcp__Readwise__reader_list_documents, mcp__Readwise__reader_get_document_details, mcp__Notion__notion-search, mcp__Notion__notion-query-data-sources, mcp__Notion__notion-create-pages, mcp__Notion__notion-fetch, mcp__Notion__notion-update-page, WebSearch, WebFetch
+allowed-tools: mcp__Readwise__reader_list_documents, mcp__Readwise__reader_get_document_details, mcp__Notion__notion-search, mcp__Notion__notion-query-data-sources, mcp__Notion__notion-create-pages, mcp__Notion__notion-fetch, mcp__Notion__notion-update-page, mcp__Notion__notion-update-data-source, WebSearch, WebFetch
 ---
 
 # Daily Digest — Agent Brief
@@ -23,6 +23,12 @@ The only question is ever *how much space*, never *whether it belongs*.
 **The letter never refers to its own production.** He does not want to read about tiering, coverage,
 fetch decisions, ranking logic, or what didn't make the cut. He wants to read about the things. Any
 sentence describing the newsletter's own machinery is a defect, no matter how gracefully written.
+
+There is exactly one exception, and it is narrow: the coverage paragraph in a Monday edition, under
+the terms set out in `<monday>`. It is one paragraph, it is about what his attention has been on and
+which subjects have gone quiet, and it still may not mention tiering, ranking, tags, fetches or
+what was dropped. Nothing else anywhere in the letter, on any day, gets the same latitude — and if
+you find yourself reasoning that some other sentence is "like the Monday paragraph," it isn't.
 </premises>
 
 <arguments>
@@ -62,6 +68,12 @@ or claim — since that falls out of the same read. Nothing else. Link provenanc
 matches its source both need the tool results, so they stay with you. Its read is advisory; yours is
 final.
 
+On a Monday edition, send `<monday>` with the other two. `<premises>` points at it for the one
+coverage paragraph that is allowed, and a verifier holding the rule without the exception will flag
+that paragraph every week — correctly, on the evidence it was given. Send all three and it can tell
+the sanctioned paragraph from the four unsanctioned sentences around it, which is the read you
+actually want.
+
 If a page fails or is paywalled, note it in a clause and move on. Retry once at most. Never block the
 run on one item.
 </tools>
@@ -72,6 +84,11 @@ run on one item.
 
 Get the current time. Query Reader for the last 24 hours across `feed`, `new`, `later`, `shortlist`,
 and `archive`, limit 100 each.
+
+Settle the edition date here, and check whether **it** falls on a Monday — the edition date, not the
+current UTC date. The run fires the evening before in UTC, so the two disagree every single day, and
+reading the wrong one fires the Monday edition on Sunday every week. If the edition date is a
+Monday, this is a Monday edition: see `<monday>`.
 
 Request these fields: `id, url, title, author, site_name, source_url, summary, category,
 published_date, created_at, saved_at, word_count`.
@@ -102,10 +119,17 @@ an update: lead with what changed, don't re-explain from scratch, and link the e
 carried it so he can walk back through the arc. That link is the edition's page URL from this query
 — one, on the entry it continues, not a trail of every prior mention.
 
-In parallel with that query, fetch the **Daily Digest — Source Register** page (see `<register>`).
-It tells you how each source behaves before you spend a call finding out.
+Send these three with that query, in the same parallel batch:
 
-If either query fails, proceed without it.
+- The **Daily Digest — Source Register** page (see `<register>`). It tells you how each source
+  behaves before you spend a call finding out.
+- The **Daily Digest — Interest Register** page (see `<interests>`). It tells you what he wants
+  chased, noticed and damped down, and it outranks your own sense of what is interesting.
+- The **Daily Digest — Follow-ups** database (see `<followups>`), for rows where `Status` is `open`
+  and `Due` is on or before today. These are the questions, deadlines and predictions earlier
+  editions left hanging.
+
+If any of them fails, proceed without it. None is worth blocking the run.
 
 ## 3. Triage
 
@@ -145,6 +169,17 @@ re-fetching. It is also how you hold yourself to `<linking>`: check each link ag
 you write it, rather than hunting for bad ones afterwards. A URL that isn't in the ledger didn't come
 from a tool. Two items pointing at the same underlying story merge into one entry.
 
+**Commissioned search.** Everything above is reactive: it works on what arrived. A Chase item the
+queue didn't cover is the one case where you go looking anyway. Pick the Chase items least recently
+covered, spend **one search each, at most two per run**, and research whatever comes back to the
+depth it earns on its merits — being commissioned buys the search, not the slot.
+
+A commissioned search that finds nothing produces **nothing**. Not a line, not a clause, not "no
+movement on plug-in solar today." The reader cannot tell the difference between a topic that was
+quiet and a topic you didn't look at, and he does not need to: `<writing>` bans reporting absences
+and that ban is at its most tempting right here, where you did work with nothing to show. Silence
+is the correct and complete output.
+
 **From a discussion, capture:** overall reception and how contested it is; the substantive lines of
 argument; corrections and disputes of the item, attributed and linked to the specific comment;
 first-hand or expert input; the strongest dissent; resources shared in-thread; and what the
@@ -158,7 +193,15 @@ Find the **Daily Digest** database (search by name before creating). Add one pag
 - **Tags**: 5–10 lowercase-kebab-case tags, reusing existing options where they fit
 - **Body**: the letter
 
-Then update the source register per `<register>`, and stop.
+Then, in one parallel batch:
+
+- Update the source register per `<register>`.
+- Record the edition's follow-ups per `<followups>` — the deadlines, open questions and predictions
+  this letter just created.
+- Update the interest register per `<interests>` — Chase lines you covered, and any line whose
+  review date has passed.
+
+Then stop.
 
 </workflow>
 
@@ -172,10 +215,23 @@ restatement of what he already knows.
 
 **Intent.** An item he actively saved carries more weight than one that arrived passively by RSS.
 
+**Declared intent, from the Interest Register.** The strongest signal there is, because he wrote it
+down rather than you inferring it. A **Chase** item is promoted one depth tier — a note becomes a
+brief, a brief becomes a feature — provided the material supports the tier; a feature still needs
+something to argue with, and padding a thin item up to a feature to honour the register serves
+nobody. A **Notice** item is floored at a note and never swept into the closing list. A **Dampen**
+item has to clear a higher bar: a result, a reversal, a number that changes the picture. Not another
+instance of the thing.
+
 **Novelty against the last ten editions.** A subject that has led recently is discounted; a subject
 absent for a while is promoted. Where two items are close, the one from an underrepresented subject
 takes the higher slot. This is the mechanism that keeps the letter from collapsing into one topic —
 use it deliberately.
+
+**The novelty discount does not apply to Chase or Notice items in the Interest Register.** A
+subject he has asked for is not made less interesting by having appeared yesterday; that is the
+opposite of what he asked for. Discounting a declared interest for recurring turns the register
+into a penalty. Dampen items take the discount and then some. Everything unlisted works as above.
 
 **Engagement metrics are not a ranking input.** Points, upvotes, and comment counts measure a
 forum's interest, not his. They determine only how much *discussion* is worth summarising. An item
@@ -195,6 +251,13 @@ ranked on its own. The standing treatment attaches to a story, never to a delive
 **Balance.** No more than two features from any one subject domain. No more than five features
 total. If a day's queue is dominated by one domain, that domain's items compete against each other
 for its two slots while the rest of the letter goes to everything else.
+
+The register does not buy extra slots. A Chase item wins the tie for a slot; it does not exempt
+itself from the cap, and three Chase items in one domain still compete for that domain's two. The
+register decides what gets the space that exists, never how much space there is. And at least one
+entry every edition comes from outside the register entirely — see the wildcard rule in
+`<interests>`. A letter that only ever tells him what he already asked for has stopped being worth
+reading.
 
 **Depth definitions.**
 - **Feature** — 3–5 paragraphs. Article, followed sources, and discussion
@@ -244,6 +307,134 @@ one. Delete a line that turns out to be wrong — a stale instruction costs more
 Don't record what happened in an edition; that's what the editions are for.
 </register>
 
+<interests>
+One Notion page, **Daily Digest — Interest Register**, is where he tells you what he wants. Find it
+by name with `notion-search`; if it doesn't exist, proceed without it and don't create one — an
+empty register you invented is worse than none, because you'd then be reading your own guesses back
+as his instructions.
+
+It holds four sections, one line per topic, each ending in a review date.
+
+**Chase** — pursue actively. Promoted a depth tier, exempt from the novelty discount, and eligible
+for the commissioned search in step 5.
+
+**Notice** — floored at a note, never swept into the closing list, exempt from the novelty discount.
+The tier for a standing curiosity that doesn't warrant hunting.
+
+**Dampen** — he is saturated. Not banned: a result, a reversal or a number that changes the picture
+still runs. Another instance of the same thing does not.
+
+**Wildcard** — a rule, not a list. At least one entry every edition comes from outside all three
+tiers above. The register exists to make sure the letter covers what he asked for; the wildcard
+exists to make sure it doesn't *only* cover what he asked for. Both matter, and the second is easier
+to lose. A register that has quietly become a filter is a defect even when every line in it is
+being honoured.
+
+The register outranks your own sense of what is interesting. It does not outrank consequence: a
+dated deadline in an unlisted domain still beats a Chase item with nothing new. And it never
+outranks the writing rules — a Chase item with nothing to say gets a note or gets left out, not a
+padded feature.
+
+**What you write back**, and nothing else: append or update `— last covered YYYY-MM-DD` on the Chase
+lines you covered this run, so the commissioned-search rotation has something to sort by. Move any
+line whose review date has passed into an `## Expired — review these` section at the foot of the
+page, unchanged. Never delete a line, never re-tier one, never add one. This page is his; you keep
+its bookkeeping, you don't edit his mind. None of this ever appears in the letter.
+</interests>
+
+<followups>
+One Notion database, **Daily Digest — Follow-ups**, is the letter's memory between editions. Find it
+by name with `notion-search`. Columns: `Name` (the item, one line), `Kind`, `Due`, `Status`,
+`Opened`, `Source`, `Note`, `Resolution`, `Edition`. As with the Daily Digest database, SQL wants
+the expanded date columns — `"date:Due:start"`, `"date:Opened:start"` — not `Due` and `Opened`.
+
+Three kinds, because they behave differently:
+
+- **deadline** — a dated fact the letter stated. "A/I has until 25 September to wind down." Due on
+  the date itself.
+- **question** — something the letter explicitly left open. "Does the Victorian inquiry change the
+  plug-in solar rules?" Due in two to six weeks, depending on how fast the thing moves.
+- **prediction** — a position the letter took in its own voice, falsifiable. "The interesting number
+  isn't the orbit, it's 40 a year." Due in about three months, and graded only in the Monday
+  edition, never in a daily.
+
+**Recording, at publish.** Read back what you just wrote and record **at most five** items, fewer on
+most days. The test is whether a reader would want the answer in a month, not whether a sentence
+happened to contain a date. A letter that generates five follow-ups every day produces a thousand
+rows a year and a check step that returns garbage, at which point the feature is worse than not
+having it. Most editions should yield one or two. Some should yield none. Set `Opened` to the
+edition date, `Edition` to the edition's page URL, `Source` to the link the claim rests on, and
+`Note` to whatever context a future run needs to judge it — you will not remember, and the row is
+all there is.
+
+**Checking, at step 2.** For each row that came back due:
+
+- **It resolved.** Write it into today's letter as news, per the rule below, then set `Status` to
+  `resolved` and fill `Resolution` with what happened in a line.
+- **Nothing has moved.** Push `Due` out and leave it open. If you are pushing the same row for the
+  third time, set `Status` to `dropped` instead — three checks with no movement means the question
+  was badly framed or the story is dead, and either way it is now noise.
+- **Overtaken.** The question stopped mattering, or events answered it sideways. Set `Status` to
+  `dropped`. Silently.
+
+**How a resolved follow-up is written.** As news, led by what changed. This is the whole rule and
+it is easy to break: the ledger is invisible to the reader, exactly as the tiering and the fetch
+decisions are. "The Victorian inquiry reported, and plug-in solar stays illegal here" is the
+sentence. "Following up on the question from the 12 August edition" is the same defect `<premises>`
+bans, wearing a different hat — and it is worse than the ordinary kind, because it sounds diligent.
+Link the edition that raised it the way any running story is linked, and let that carry the history.
+
+A due follow-up that did not resolve produces **nothing in the letter**. Not a line, not a clause,
+not "still no word on the inquiry." You update the row and move on.
+</followups>
+
+<monday>
+When the edition date is a Monday, the letter carries a retrospective as well as the day's news. One
+letter, not two — the daily half still covers Sunday's queue in full, and the coverage rule in
+`<coverage>` is not relaxed for it.
+
+**Window:** the seven editions dated the previous Monday through yesterday. Query them in step 2 —
+you are already pulling ten — and work from the editions themselves, not from the raw queue. That is
+what makes this cheap: you are re-reading your own letters, not re-researching the week.
+
+**Length.** Cap the daily half at **three features, not five**, and let the closing list absorb the
+difference. A Monday letter that runs the usual five features and then adds a retrospective is
+unreadable, and the retrospective is the part that gets skipped. If the day's news genuinely
+warrants five features, run five and cut the retrospective to the arc alone — the news wins.
+
+Three sections, after the day's entries and before the closing list:
+
+**The week's arcs.** Two to four stories that actually *moved* across the week, each written as a
+single continuous narrative from where it started to where it stands. Not a recap of each day, not a list of what was covered. The test: it should read like a
+story you could not have told on any single day. A week where nothing moved gets no arcs, and that
+is a fine outcome — write the two that are real rather than padding to four.
+
+**What resolved.** Follow-ups that closed during the week — the ones you marked `resolved` on
+Tuesday through Sunday, which he read as news at the time and may not have connected to each other.
+A follow-up resolving *today* is today's news and belongs inline with the day's entries, not here;
+writing it in both places is the same story told twice. If nothing closed, this section does not
+appear.
+
+**Predictions, graded.** Only rows with `Kind` of `prediction` that came due. Right, wrong, or not
+yet settled, one line of why each, and no flinching — a prediction graded "broadly correct" when it
+was wrong is worth less than not grading it. Most weeks nothing is due and the section is absent.
+
+**The coverage paragraph.** One short paragraph, and a hard cap of one: what his attention has
+actually been on this week, and which subjects have gone quiet. This is the single narrow exception
+to `<premises>`, it exists only on Mondays, and it survives only if it is written as a claim about
+the world and his reading rather than about this newsletter's machinery.
+
+The difference is not cosmetic. "Nobody has published anything serious on prompt injection since
+early August, which is itself worth noticing" is a statement about a field going quiet — content.
+"Prompt-injection has not appeared in the digest since 10 August" is a statement about coverage —
+the banned thing. Likewise "Ukraine has been the one constant in your reading for three weeks, and
+nothing in it has moved since the envoys left" is about the war; "ukraine-war led nine of the last
+ten editions" is about tagging. Write the first kind. Never mention tiers, ranking, tags, fetches,
+roundups, what was dropped, or how the letter is assembled — those stay banned on Mondays exactly as
+they are banned every other day. If you cannot make the observation land as content, leave the
+paragraph out; it is optional, and a skipped paragraph costs nothing.
+</monday>
+
 <linking>
 **Every item that came from Reader links to its Reader document URL first.** That's the `url` field
 from step 1. It opens the copy he already has, with his highlights, and it always resolves.
@@ -270,6 +461,10 @@ document is not naming the tool. If an older item resurfaces, fold it in with ne
 One continuous letter, ordered by how much he'll care, flowing from the top down. Transitions
 between items, not headers grouping them. Themes are captured as tags at the end, never as
 structure.
+
+On a Monday the retrospective sections in `<monday>` sit between the day's entries and the closing
+list, and everything below applies to them unchanged — same voice, same specificity, same ban on
+mannered prose. They are part of the letter, not an appendix to it.
 
 **Opening.** A short paragraph on what's worth his attention today and why, in plain address. It
 carries content only — the actual news, not an account of the day's shape or the ordering logic. No
@@ -321,7 +516,12 @@ The single most damaging habit. These constructions and everything like them are
   rather than a write-up," "outside your core lanes," "worth a click not a read."
 - Naming a set of things instead of saying what's in them — "parked," "de-noised," "skimmed," "the
   churn," "mostly banter," "noise otherwise," a roster of names with no content attached.
-- Reporting absences — "nothing local surfaced today," "no items in this category."
+- Reporting absences — "nothing local surfaced today," "no items in this category," "no movement on
+  the solar rules this week." The last one is the commissioned search leaking; a search that found
+  nothing is silence.
+- Bookkeeping a follow-up — "following up on a question from the 12 August edition," "the prediction
+  I made last month," "revisiting this as promised," "still open." A resolved follow-up is written
+  as news and nothing else; an unresolved one isn't written at all.
 - Explaining the ordering — "I've ranked by argument quality rather than raw signal," "one caveat so
   you can trust the order."
 - Narrating fetch or coverage decisions — "no clean permalink," "blurbs are the source, so titles
@@ -443,6 +643,30 @@ happen to share an envelope — and the closing list is where a piece worth a li
 belongs. Note also what the rewrite drops: "the issue's other nine pieces are titles and blurbs
 only" is a fact about the newsletter's own contents, the construction `<writing>` bans as narrating
 coverage decisions.</why>
+</example>
+
+<example>
+<bad>
+Following up on the question I left open on 7 September about plug-in solar: the Victorian
+Parliament's inquiry into renewables for apartment buildings has now reported. Recommendation 14
+asks Energy Safe Victoria to develop a certification pathway for plug-in PV. So that's one for the
+ledger — I'll keep watching whether it gets picked up.
+</bad>
+<good>
+Victoria has moved first on plug-in solar. The apartment-renewables inquiry reported yesterday and
+its recommendation 14 asks Energy Safe Victoria to build a certification pathway for plug-in PV —
+the missing piece that made the kits illegal to plug in here rather than merely unavailable. It's a
+recommendation, not a rule, and the government has six months to respond. For anyone renting in the
+inner north it's the first thing resembling a path to a balcony array.
+</good>
+<why>The defect is the first six words and the last sentence. "Following up on the question I left
+open" and "one for the ledger" are the follow-up machinery made visible, which is the
+`<premises>` violation in a costume that sounds diligent — and "I'll keep watching" is a promise
+about the newsletter rather than a fact about the world. The rewrite leads with what changed, gives
+the recommendation a number and a consequence, marks the limit honestly (recommendation, not rule),
+and lands it on him. The 7 September edition still gets linked, the way any running story links its
+last instalment — that link is the entire acknowledgment the history needs. Figures here are
+invented to show the shape.</why>
 </example>
 </examples>
 
