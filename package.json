@@ -1,0 +1,23 @@
+{
+  "name": "feed-summarizer",
+  "version": "1.0.0",
+  "description": "Daily GitHub action to fetch and summarize articles from Readwise Reader",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "fetch": "node src/index.js",
+    "test": "node test/test-with-mock-data.js",
+    "test:syntax": "node --check src/index.js"
+  },
+  "keywords": [
+    "readwise",
+    "claude",
+    "feed",
+    "summarizer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0"
+  }
+}
