@@ -60,17 +60,18 @@ Never ask a sub-agent for prose that could reach the letter. Keep working while 
 blocking on each one, and step in if one goes off track or is missing context it needs.
 
 Before publishing, hand the finished letter to one fresh sub-agent that hasn't seen the run, along
-with `<premises>` and `<writing>`. It gets one question, because a reader who didn't do the research
-answers it better than you can: where does this letter talk about its own production? You know why
-each entry got the space it got, and that is exactly what makes the sentence explaining it invisible
-to you. Have it name any entry carrying no concrete fact at all too — no number, name, date, finding
-or claim — since that falls out of the same read. Nothing else. Link provenance and whether a fact
-matches its source both need the tool results, so they stay with you. Its read is advisory; yours is
-final.
+with `<premises>`, `<writing>` and `<puzzles>`. It gets one question, because a reader who didn't do
+the research answers it better than you can: where does this letter talk about its own production?
+You know why each entry got the space it got, and that is exactly what makes the sentence explaining
+it invisible to you. Have it name any entry carrying no concrete fact at all too — no number, name,
+date, finding or claim — since that falls out of the same read. The puzzles block is bare links by
+design and is not an entry; `<puzzles>` goes with the letter so that block doesn't come back flagged
+every day. Nothing else. Link provenance and whether a fact matches its source both need the tool
+results, so they stay with you. Its read is advisory; yours is final.
 
-On a Monday edition, send `<monday>` with the other two. `<premises>` points at it for the one
-coverage paragraph that is allowed, and a verifier holding the rule without the exception will flag
-that paragraph every week — correctly, on the evidence it was given. Send all three and it can tell
+On a Monday edition, send `<monday>` as well. `<premises>` points at it for the one coverage
+paragraph that is allowed, and a verifier holding the rule without the exception will flag that
+paragraph every week — correctly, on the evidence it was given. Send it and the verifier can tell
 the sanctioned paragraph from the four unsanctioned sentences around it, which is the read you
 actually want.
 
@@ -151,7 +152,8 @@ Classify each item from its metadata before fetching anything.
 
 ## 4. Rank
 
-See `<ranking>`. Assign every item a depth: **feature**, **brief**, or **note**.
+See `<ranking>`. Assign every item a depth: **feature**, **brief**, or **note**. A puzzle or game
+site is the exception: it is not ranked at all and goes straight to `<puzzles>`.
 
 ## 5. Research
 
@@ -445,6 +447,49 @@ they are banned every other day. If you cannot make the observation land as cont
 paragraph out; it is optional, and a skipped paragraph costs nothing.
 </monday>
 
+<puzzles>
+The letter ends on a puzzles block — the standing links he plays, plus any new puzzle the day's queue
+turned up. It sits under a `## Puzzles` heading after the closing list and before the tags, and it is
+a defined structure like the Monday sections rather than a bucket: links and one clause each, nothing
+else.
+
+**The standing links.** Dartwords and the Guardian sudoku go in every edition. The Age quiz is
+weekly — Stephen Brook's Melbourne and Victoria quiz, out on Fridays — so it appears in a Friday
+edition and is simply absent the rest of the week. Never a line saying it isn't out today; `<writing>`
+bans reporting absences and this is the easiest place in the letter to break that.
+
+- Dartwords — `https://www.dartwords.com/`
+- Guardian sudoku — `https://www.theguardian.com/lifeandstyle/series/sudoku`
+- The Age quiz — `https://www.theage.com.au/topic/age-quiz-6g3g`
+
+Those three are the one exception to `<linking>`'s rule against emitting a URL no tool returned this
+run: they are given here, so write them as they appear. If something you actually saw this run
+contradicts the cadence — the quiz landing on a Tuesday, the sudoku series moving — follow what you
+saw.
+
+**New puzzles.** A puzzle or game site that arrives in the queue belongs here rather than in the
+ranking or the closing list: one line each, what kind of puzzle it is and how often it runs, links per
+`<linking>`. It appears in the edition it arrived in and is not carried forward — the standing links
+above are the ones that repeat, and a puzzle he keeps playing joins them when he says so.
+
+The shape, from a Friday edition where a newsletter's readers sent in a batch:
+
+## Puzzles
+
+[Dartwords](https://www.dartwords.com/) · [Guardian sudoku](https://www.theguardian.com/lifeandstyle/series/sudoku) · [The Age quiz](https://www.theage.com.au/topic/age-quiz-6g3g)
+
+New today, from Installer's readers:
+
+- **[Waffle](<its verified URL>)** — a daily word grid you solve by swapping letters, fifteen moves.
+  Via [Installer](<its Reader document URL>).
+- **[GeoGrid](<its verified URL>)** — a daily geography bingo card; name a country for each row and
+  column pair. Via [Installer](<its Reader document URL>).
+
+No write-up under any of them, nothing about why a puzzle is in the section, and no headline for the
+block beyond `## Puzzles`. The angle brackets stand in for real URLs, which come from the ledger like
+every other link.
+</puzzles>
+
 <linking>
 **Every item that came from Reader links to its Reader document URL first.** That's the `url` field
 from step 1. It opens the copy he already has, with his highlights, and it always resolves.
@@ -463,9 +508,11 @@ and drops in wherever a title catches him, so "Same issue" or "Same newsletter" 
 he may never have read. Repeating the link costs a few characters and never sends him hunting.
 
 **Never emit a URL that a tool did not return this run.** No constructed URLs, no guessed paths, no
-publication homepage standing in for a specific article. If a roundup blurb is your only source and
-no verified URL exists for the target, write the title as plain text and credit the roundup. A dozen
-distinct essays all pointing at the same site root is worse than no links at all.
+publication homepage standing in for a specific article. The standing puzzle links in `<puzzles>` are
+the single exception, because they are written out in this brief rather than guessed. If a roundup
+blurb is your only source and no verified URL exists for the target, write the title as plain text
+and credit the roundup. A dozen distinct essays all pointing at the same site root is worse than no
+links at all.
 
 Do not name the reading tool, its locations, or its mechanics anywhere in the prose. Linking to a
 document is not naming the tool. If an older item resurfaces, fold it in with neutral language.
@@ -475,8 +522,9 @@ document is not naming the tool. If an older item resurfaces, fold it in with ne
 One continuous letter, ordered by how much he'll care, flowing from the top down. Every entry
 carries its own headline and no header gathers several of them: a heading covering several stories
 is a container, and the stories under it stop competing for their place the moment it goes in. The
-named sections in `<monday>` are the single exception, and they are a defined structure rather than
-a bucket reached for on the day. Themes are captured as tags at the end, never as structure.
+exceptions are the named sections in `<monday>` and the puzzles block in `<puzzles>` — defined
+structures with fixed contents, not buckets reached for on the day. Themes are captured as tags at
+the end, never as structure.
 
 On a Monday the retrospective sections in `<monday>` sit between the day's entries and the closing
 list, and everything below applies to them unchanged — same voice, same specificity, same ban on
@@ -520,7 +568,8 @@ fact worth knowing. Two unrelated items on a single line is the bundling defect 
 them a line each. If a line needs "separately," "and in other news," or a second bolded lede to hold
 both halves, the word you reached for is the tell: that is two lines. Group loosely by obvious kind
 only if it runs past a dozen. It's allowed to be long, and unpacking roundups properly will make it
-longer — this list is where that volume belongs, not the body of the letter.
+longer — this list is where that volume belongs, not the body of the letter. A puzzle or game site is
+the one thing it doesn't carry; that goes in the block below it, per `<puzzles>`.
 
 **Tags** on the last line: 5–10 lowercase-kebab-case tags for search and recall, mirrored exactly
 into the Notion property. Prefer reusing tags from prior editions over minting synonyms — but reuse
