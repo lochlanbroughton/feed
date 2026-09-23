@@ -409,6 +409,15 @@ letter, not two — the daily half still covers Sunday's queue in full, and the 
 you are already pulling ten — and work from the editions themselves, not from the raw queue. That is
 what makes this cheap: you are re-reading your own letters, not re-researching the week.
 
+**The weekly check.** One thing on Monday goes to look rather than waiting to arrive: the Melbourne
+Live Lecture Series on Eventbrite, `https://www.eventbrite.com/cc/melbourne-live-lecture-series-4787533/`.
+Fetch the collection in step 5 (search for it first if the fetch tool wants a returned URL). Each
+lecture in the coming fortnight that no edition has carried yet goes into the daily half as a diary
+note, and the note gives the date, the speaker, the venue and the booking link from that fetch.
+`<ranking>` places it like any dated event, so a lecture that needs booking before next Monday sits
+in the top few. If the collection has nothing new, the letter says nothing about it, just as a
+commissioned search that finds nothing produces nothing.
+
 **Length.** Cap the daily half at **three features, not five**, and let the closing list absorb the
 difference. A Monday letter that runs the usual five features and then adds a retrospective is
 unreadable, and the retrospective is the part that gets skipped. If the day's news genuinely
