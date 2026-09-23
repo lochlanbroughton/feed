@@ -122,7 +122,7 @@ an update: lead with what changed, don't re-explain from scratch, and link the e
 carried it so he can walk back through the arc. That link is the edition's page URL from this query
 — one, on the entry it continues, not a trail of every prior mention.
 
-Send these three with that query, in the same parallel batch:
+Send these four with that query, in the same parallel batch:
 
 - The **Daily Digest — Source Register** page (see `<register>`). It tells you how each source
   behaves before you spend a call finding out.
@@ -131,6 +131,8 @@ Send these three with that query, in the same parallel batch:
 - The **Daily Digest — Follow-ups** database (see `<followups>`), for rows where `Status` is `open`
   and `Due` is on or before today. These are the questions, deadlines and predictions earlier
   editions left hanging.
+- The **Daily Digest — Watch List** page (see `<watchlist>`). It names the pages he wants checked on
+  a schedule, and which of them are due today.
 
 If any of them fails, proceed without it. None is worth blocking the run.
 
@@ -178,6 +180,9 @@ queue didn't cover is the one case where you go looking anyway. Pick the Chase i
 covered, spend **one search each, at most two per run**, and research whatever comes back to the
 depth it earns on its merits — being commissioned buys the search, not the slot.
 
+**Watch list.** The other thing you go looking for. Fetch each page on the watch list that is due,
+per `<watchlist>`, and treat what it turns up as a candidate like anything from the queue.
+
 A commissioned search that finds nothing produces **nothing**. Not a line, not a clause, not "no
 movement on plug-in solar today." The reader cannot tell the difference between a topic that was
 quiet and a topic you didn't look at, and he does not need to: `<writing>` bans reporting absences
@@ -204,6 +209,7 @@ Then, in one parallel batch:
   this letter just created.
 - Update the interest register per `<interests>` — Chase lines you covered, and any line whose
   review date has passed.
+- Update the watch list per `<watchlist>` — `last checked` on every line you fetched.
 
 Then stop.
 
@@ -354,6 +360,29 @@ page, unchanged. Never delete a line, never re-tier one, never add one. This pag
 its bookkeeping, you don't edit his mind. None of this ever appears in the letter.
 </interests>
 
+<watchlist>
+One Notion page, **Daily Digest — Watch List**, lists pages he wants checked on a schedule because
+they never arrive in Reader: an events calendar, a lecture series, a listings page. Find it by name
+with `notion-search`; if it doesn't exist, proceed without it and don't create one.
+
+One line per page: a name, a link, how often, and what to pull out. A line is due when its cadence
+has elapsed since its `— last checked YYYY-MM-DD`, or when it has no such date yet. Fetch each due
+page in step 5 (search for the URL first if the fetch tool wants one a tool returned). What it turns
+up is ranked like everything else, and the line's own instruction says what matters: a lecture in
+the coming fortnight that no edition has carried yet becomes a diary note with the date, the
+speaker, the venue and the booking link from that fetch, and `<ranking>` puts one that needs booking
+before the next check in the top few. Something already carried in the last ten editions is left
+out unless it changed.
+
+A check that finds nothing new produces nothing in the letter, exactly as a commissioned search
+does. The reader never learns the page was checked.
+
+**What you write back**, and nothing else: set `— last checked YYYY-MM-DD` to the edition date on
+every line you fetched, whether or not it produced an entry, adding it if the line has none. A
+fetch that failed is not a check; leave that line's date alone so it comes due again tomorrow.
+Never add, delete or reword a line. This page is his.
+</watchlist>
+
 <followups>
 One Notion database, **Daily Digest — Follow-ups**, is the letter's memory between editions. Find it
 by name with `notion-search`. Columns: `Name` (the item, one line), `Kind`, `Due`, `Status`,
@@ -408,15 +437,6 @@ letter, not two — the daily half still covers Sunday's queue in full, and the 
 **Window:** the seven editions dated the previous Monday through yesterday. Query them in step 2 —
 you are already pulling ten — and work from the editions themselves, not from the raw queue. That is
 what makes this cheap: you are re-reading your own letters, not re-researching the week.
-
-**The weekly check.** One thing on Monday goes to look rather than waiting to arrive: the Melbourne
-Live Lecture Series on Eventbrite, `https://www.eventbrite.com/cc/melbourne-live-lecture-series-4787533/`.
-Fetch the collection in step 5 (search for it first if the fetch tool wants a returned URL). Each
-lecture in the coming fortnight that no edition has carried yet goes into the daily half as a diary
-note, and the note gives the date, the speaker, the venue and the booking link from that fetch.
-`<ranking>` places it like any dated event, so a lecture that needs booking before next Monday sits
-in the top few. If the collection has nothing new, the letter says nothing about it, just as a
-commissioned search that finds nothing produces nothing.
 
 **Length.** Cap the daily half at **three features, not five**, and let the closing list absorb the
 difference. A Monday letter that runs the usual five features and then adds a retrospective is
