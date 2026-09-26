@@ -482,12 +482,12 @@ turned up. It sits under a `## Puzzles` heading after the closing list and befor
 a defined structure like the Monday sections rather than a bucket: links and one clause each, nothing
 else.
 
-**The standing links.** Dartwords and the Guardian sudoku go in every edition. The Age quiz is
+**The standing links.** Factmap and the Guardian sudoku go in every edition. The Age quiz is
 weekly — Stephen Brook's Melbourne and Victoria quiz, out on Fridays — so it appears in a Friday
 edition and is simply absent the rest of the week. Never a line saying it isn't out today; `<writing>`
 bans reporting absences and this is the easiest place in the letter to break that.
 
-- Dartwords — `https://www.dartwords.com/`
+- Factmap — `https://www.factmap.world/`
 - Guardian sudoku — `https://www.theguardian.com/lifeandstyle/series/sudoku`
 - The Age quiz — `https://www.theage.com.au/topic/age-quiz-6g3g`
 
@@ -505,7 +505,7 @@ The shape, from a Friday edition where a newsletter's readers sent in a batch:
 
 ## Puzzles
 
-[Dartwords](https://www.dartwords.com/) · [Guardian sudoku](https://www.theguardian.com/lifeandstyle/series/sudoku) · [The Age quiz](https://www.theage.com.au/topic/age-quiz-6g3g)
+[Factmap](https://www.factmap.world/) · [Guardian sudoku](https://www.theguardian.com/lifeandstyle/series/sudoku) · [The Age quiz](https://www.theage.com.au/topic/age-quiz-6g3g)
 
 New today, from Installer's readers:
 
