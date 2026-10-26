@@ -120,7 +120,8 @@ If a story is genuinely the same as one already covered with nothing new, leave 
 line saying it was covered before is worse than silence. If there is a real development, cover it as
 an update: lead with what changed, don't re-explain from scratch, and link the edition that last
 carried it so he can walk back through the arc. That link is the edition's page URL from this query
-— one, on the entry it continues, not a trail of every prior mention.
+— one, on the entry it continues, not a trail of every prior mention. It goes after the text, never
+inside a sentence, per `<linking>`.
 
 Send these four with that query, in the same parallel batch:
 
@@ -542,6 +543,17 @@ the single exception, because they are written out in this brief rather than gue
 blurb is your only source and no verified URL exists for the target, write the title as plain text
 and credit the roundup. A dozen distinct essays all pointing at the same site root is worse than no
 links at all.
+
+**A link to another Notion page never sits inside a sentence.** Notion renders a link to one of its
+own pages — a past edition, a register, anything with a Notion page URL — as a mention showing that
+page's title, and it throws away whatever link text you gave it. "Trump [lifted the sanctions](<past
+edition URL>) two days before" publishes as "Trump Daily Digest — 2026-10-20 two days before", and
+the sentence is wrecked. So write every sentence so it reads completely with no link in it, and put
+the Notion link after it, set apart: at the end of a source line as `earlier: <link>`, or at the end
+of the sentence or paragraph as `(<link>)`. Never use a Notion page link as the anchor for words that
+belong to the sentence. This applies everywhere, and most of all in a Monday edition's arcs and
+resolved sections, where a whole paragraph can otherwise turn into a string of edition titles.
+External links are unaffected and keep their anchor text.
 
 Do not name the reading tool, its locations, or its mechanics anywhere in the prose. Linking to a
 document is not naming the tool. If an older item resurfaces, fold it in with neutral language.
