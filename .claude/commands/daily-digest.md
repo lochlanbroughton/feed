@@ -120,7 +120,8 @@ If a story is genuinely the same as one already covered with nothing new, leave 
 line saying it was covered before is worse than silence. If there is a real development, cover it as
 an update: lead with what changed, don't re-explain from scratch, and link the edition that last
 carried it so he can walk back through the arc. That link is the edition's page URL from this query
-— one, on the entry it continues, not a trail of every prior mention.
+— one, on the entry it continues, not a trail of every prior mention. It goes after the text, never
+inside a sentence, per `<linking>`.
 
 Send these four with that query, in the same parallel batch:
 
@@ -543,6 +544,15 @@ blurb is your only source and no verified URL exists for the target, write the t
 and credit the roundup. A dozen distinct essays all pointing at the same site root is worse than no
 links at all.
 
+**A link to another Notion page never sits inside a sentence.** Notion renders a link to one of its
+own pages — a past edition, a register, anything with a Notion page URL — as a mention showing that
+page's title, and it throws away whatever link text you gave it — the words you put in the anchor
+never reach him. So write every sentence so it reads completely with no link in it, and put the
+Notion link after it, set apart: at the end of a source line as `earlier: <link>`, or at the end of
+the sentence or paragraph as `(<link>)`. This matters most in a Monday edition's arcs and resolved
+sections, which link a past edition in nearly every sentence. External links are unaffected and keep
+their anchor text.
+
 Do not name the reading tool, its locations, or its mechanics anywhere in the prose. Linking to a
 document is not naming the tool. If an older item resurfaces, fold it in with neutral language.
 </linking>
@@ -821,6 +831,25 @@ the recommendation a number and a consequence, marks the limit honestly (recomme
 and lands it on him. The 7 September edition still gets linked, the way any running story links its
 last instalment — that link is the entire acknowledgment the history needs. Figures here are
 invented to show the shape.</why>
+</example>
+<example>
+<bad>
+New Mexico's judge set Meta's penalty at Daily Digest — 2026-10-23, about a ninth of the \$219.5
+billion maximum, with no formula for the cut and 15 per cent annual interest; Meta says it will
+appeal. Anthropic has asked the full D.C. Circuit to Daily Digest — 2026-10-24, with 17 former
+national-security officials backing it.
+</bad>
+<good>
+New Mexico's judge set Meta's penalty at about a ninth of the \$219.5 billion maximum, with no
+formula for the cut and 15 per cent annual interest; Meta says it will appeal. (<the 23 October
+edition's page URL>) Anthropic has asked the full D.C. Circuit to rehear its Pentagon case, with 17 former
+national-security officials backing it. (<the 24 October edition's page URL>)
+</good>
+<why>The bad version is exactly what the 26 October edition published. The writer used each past
+edition as the anchor for the words that carried the news, and Notion replaced those words with the
+page's title, so the penalty figure and the thing Anthropic asked for vanished. In the rewrite every
+sentence stands on its own and the edition link follows it, so Notion can title it however it
+likes.</why>
 </example>
 </examples>
 
