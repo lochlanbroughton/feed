@@ -483,16 +483,19 @@ turned up. It sits under a `## Puzzles` heading after the closing list and befor
 a defined structure like the Monday sections rather than a bucket: links and one clause each, nothing
 else.
 
-**The standing links.** Factmap and the Guardian sudoku go in every edition. The Age quiz is
-weekly — Stephen Brook's Melbourne and Victoria quiz, out on Fridays — so it appears in a Friday
-edition and is simply absent the rest of the week. Never a line saying it isn't out today; `<writing>`
+**The standing links.** Factmap, Clues By Sam, elect.horse, Yesterpedia and the Guardian sudoku go
+in every edition. The Age quiz is weekly — Stephen Brook's Melbourne and Victoria quiz, out on Fridays — so it appears in a
+Friday edition and is simply absent the rest of the week. Never a line saying it isn't out today; `<writing>`
 bans reporting absences and this is the easiest place in the letter to break that.
 
 - Factmap — `https://www.factmap.world/`
+- Clues By Sam — `https://cluesbysam.com/`
+- elect.horse — `https://elect.horse/`
+- Yesterpedia — `https://yesterpedia.puntofisso.net/`
 - Guardian sudoku — `https://www.theguardian.com/lifeandstyle/series/sudoku`
 - The Age quiz — `https://www.theage.com.au/topic/age-quiz-6g3g`
 
-Those three are the one exception to `<linking>`'s rule against emitting a URL no tool returned this
+Those six are the one exception to `<linking>`'s rule against emitting a URL no tool returned this
 run: they are given here, so write them as they appear. If something you actually saw this run
 contradicts the cadence — the quiz landing on a Tuesday, the sudoku series moving — follow what you
 saw.
@@ -506,7 +509,7 @@ The shape, from a Friday edition where a newsletter's readers sent in a batch:
 
 ## Puzzles
 
-[Factmap](https://www.factmap.world/) · [Guardian sudoku](https://www.theguardian.com/lifeandstyle/series/sudoku) · [The Age quiz](https://www.theage.com.au/topic/age-quiz-6g3g)
+[Factmap](https://www.factmap.world/) · [Clues By Sam](https://cluesbysam.com/) · [elect.horse](https://elect.horse/) · [Yesterpedia](https://yesterpedia.puntofisso.net/) · [Guardian sudoku](https://www.theguardian.com/lifeandstyle/series/sudoku) · [The Age quiz](https://www.theage.com.au/topic/age-quiz-6g3g)
 
 New today, from Installer's readers:
 
